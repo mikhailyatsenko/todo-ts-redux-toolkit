@@ -12,7 +12,6 @@ const NewTodoForm: React.FC<NewTodoProps> = ({ value, updateText }) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log(inputRef);
     if (inputRef.current) inputRef.current.focus();
   }, []);
 
@@ -25,6 +24,7 @@ const NewTodoForm: React.FC<NewTodoProps> = ({ value, updateText }) => {
         <textarea
           ref={inputRef}
           placeholder="new todo"
+          maxLength={140}
           value={value}
           onChange={(e) => updateText(e.target.value)}
           onKeyDown={(e) => {

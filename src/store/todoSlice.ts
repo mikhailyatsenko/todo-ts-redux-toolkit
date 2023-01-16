@@ -29,7 +29,13 @@ const todoSlice = createSlice({
   name: "todos",
   initialState: initialState,
   reducers: {
+    addTodosFromLs: (state, action: PayloadAction<string>) => {
+      const newState = JSON.parse(action.payload);
+      Object.assign(state, newState);
+    },
+
     addTodo: (state, action: PayloadAction<payloadTitleType>) => {
+      console.log("стэйт перед пушем", state.todos);
       state.todos.push({
         id: new Date().toISOString(),
         title: action.payload.text,
@@ -40,6 +46,7 @@ const todoSlice = createSlice({
     removeTodo: (state, action: PayloadAction<payloadIdCompletedType>) => {
       action.payload.completed ? (state.completedTodos = state.completedTodos.filter((todo) => todo.id !== action.payload.id)) : (state.todos = state.todos.filter((todo) => todo.id !== action.payload.id));
     },
+
     toggleTodo: (state, action: PayloadAction<payloadIdCompletedType>) => {
       action.payload.completed
         ? state.completedTodos.forEach((todo) => {
@@ -56,11 +63,9 @@ const todoSlice = createSlice({
               todo.completed = !todo.completed;
             }
           });
-
-      console.log(state.completedTodos.length);
     },
   },
 });
 
-export const { addTodo, removeTodo, toggleTodo } = todoSlice.actions;
+export const { addTodosFromLs, addTodo, removeTodo, toggleTodo } = todoSlice.actions;
 export default todoSlice.reducer;

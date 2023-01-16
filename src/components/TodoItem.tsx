@@ -29,7 +29,7 @@ const TodoItem: React.FC<ITodo> = (props) => {
         <span className={completed ? "title cross" : "title"}>{title}</span>
       </label>
 
-      <div className="remove-button" onClick={() => removeItem(id)}>
+      <div className="remove-item" onClick={() => removeItem(id)}>
         <i className="fa fa-trash-o" aria-hidden="true"></i>
       </div>
     </div>
