@@ -24,7 +24,7 @@ const NewTodoForm: React.FC<NewTodoProps> = ({ value, updateText }) => {
         <textarea
           ref={inputRef}
           placeholder="new todo"
-          maxLength={140}
+          maxLength={70}
           value={value}
           onChange={(e) => updateText(e.target.value)}
           onKeyDown={(e) => {

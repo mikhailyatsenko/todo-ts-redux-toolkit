@@ -64,8 +64,16 @@ const todoSlice = createSlice({
             }
           });
     },
+
+    removeAlltodos: (state, action: PayloadAction<string>) => {
+      if (action.payload === "completed") {
+        Object.assign(state, { completedTodos: [] });
+      } else if (action.payload === "not-completed") {
+        Object.assign(state, { todos: [] });
+      }
+    },
   },
 });
 
-export const { addTodosFromLs, addTodo, removeTodo, toggleTodo } = todoSlice.actions;
+export const { addTodosFromLs, addTodo, removeTodo, toggleTodo, removeAlltodos } = todoSlice.actions;
 export default todoSlice.reducer;

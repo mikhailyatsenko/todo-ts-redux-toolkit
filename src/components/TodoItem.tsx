@@ -10,15 +10,17 @@ const TodoItem: React.FC<ITodo> = (props) => {
   const [showItem, setShowItem] = useState("");
 
   useEffect(() => {
-    setTimeout(() => setShowItem("show"), 100);
+    setTimeout(() => setShowItem("show"), 400);
   }, []);
 
   const removeItem = (id: string): void => {
-    dispatch(removeTodo({ id: id, completed }));
+    setShowItem("");
+    setTimeout(() => dispatch(removeTodo({ id: id, completed })), 400);
   };
 
   const toggleItem = (id: string): void => {
-    dispatch(toggleTodo({ id: id, completed: completed }));
+    setShowItem("");
+    setTimeout(() => dispatch(toggleTodo({ id: id, completed: completed })), 400);
   };
 
   return (
