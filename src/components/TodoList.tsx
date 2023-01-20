@@ -30,9 +30,9 @@ const TodoList: React.FC = () => {
   }, [allTodos]);
 
   return (
-    <div className="todos-area">
+    <div className="todos-all">
       {allTodos.todos.length ? (
-        <div className="todos-all">
+        <div className="todos-area">
           <h2>Todos:</h2>
           <div className="todos-list">
             {allTodos.todos.map((todo) => (
@@ -48,7 +48,7 @@ const TodoList: React.FC = () => {
       ) : null}
 
       {allTodos.completedTodos.length ? (
-        <div className="todos-all">
+        <div className="todos-area">
           <h2>Completed todos:</h2>
           <div className="todos-list">
             {allTodos.completedTodos.map((todo) => (
